@@ -18,6 +18,10 @@ bundle exec anycable --server-command "anycable-go --host=localhost --port=3334"
 ```
 
 ```
+#config/cable.yml
+development:
+  adapter: any_cable
+
 # config/anycable.yml
 development:
   redis_url: redis://localhost:6379/1
@@ -30,3 +34,18 @@ config.action_cable.url = "ws://localhost:3334/cable"
 <%= action_cable_meta_tag %>
 ```
 
+
+To Subscribe To Channel
+```
+ {"command":"subscribe", "identifier":"{\"channel\":\"WelcomeChannel\"}"}
+```
+
+To Send Message To Channel
+```
+{
+    "command": "message",
+    "data": "{\"body\":\"Hello World\"}",
+    "identifier": "{\"channel\":\"WelcomeChannel\"}"
+}
+
+```
