@@ -1,25 +1,32 @@
-## README
-# README
+# AnyCable Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+Demo requires Rails 6
 
-* Ruby version
+Install the dependencies and devDependencies and start the server.
 
-* System dependencies
+```sh
+# Gemfile
+gem "anycable-rails"
+gem "redis"
+```
+```sh
+# Terminal
+brew install anycable-go
+bundle exec anycable --server-command "anycable-go --host=localhost --port=3334"
+```
 
-* Configuration
+```
+# config/anycable.yml
+development:
+  redis_url: redis://localhost:6379/1
+  access_logs_disabled: false
 
-* Database creation
+# config/environments/development.rb
+config.action_cable.url = "ws://localhost:3334/cable"
 
-* Database initialization
+# app/views/layouts/application.html.erb
+<%= action_cable_meta_tag %>
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
