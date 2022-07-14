@@ -10,6 +10,10 @@ Install the dependencies and devDependencies and start the server.
 # Gemfile
 gem "anycable-rails"
 gem "redis"
+
+
+bundle exec rails g anycable:setup
+
 ```
 ```sh
 # Terminal
